@@ -1,0 +1,56 @@
+<!--
+File: /~amccombs/hw5/index.html
+GUI 1 Assignment: Intro to JS
+Allan Z. McCombs, UMass Lowell Computer Science, allan_mccombs@student.uml.edu
+Copyright (c) 2020 by Allan Z McCombs. All rights reserved. May be
+freely
+copied or excerpted for educational purposes with credit to the
+author.
+ updated by AZM on October 29, 2020 at 7:16pm
+-->
+
+<!DOCTYPE html>
+<html lang = "en-US">
+  <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="style.css">
+
+      <title>Intro to JS</title>
+
+  </head>
+  <body>
+
+    <h1>
+      Multiplication Table
+    </h1>
+  <div id="Form">
+
+    <!-- Form help from https://www.w3schools.com/html/html_forms.asp
+    Onsubmit from https://www.w3schools.com/tags/ev_onsubmit.asp
+    with onsubmit, the table only appears for a split second for some reason
+    so instead I use onClick to show the table -->
+
+    <form onsubmit="return false">
+      <label for="row_min">Row Min:</label><br>
+      <input type="text" id="row_min" name="row_min"><br>
+      <label for="row_max">Row Max:</label><br>
+      <input type="text" id="row_max" name="row_max"><br>
+
+      <label for="col_min">Col Min:</label><br>
+      <input type="text" id="col_min" name="col_min"><br>
+      <label for="col_max">Col Max:</label><br>
+      <input type="text" id="col_max" name="col_max"><br><br>
+      <input type="submit" value="Submit" onclick="return create_Table()">
+    </form>
+  </div>
+
+  <!-- Table gets loading here after the js is finished creating it -->
+  <div id ="Multiplication_table"></div>
+
+  <footer>
+    <p>&copy; Allan McCombs 2020</p>
+  </footer>
+
+    <script src="js/hw5.js" charset="utf-8"></script>
+  </body>
+</html>
