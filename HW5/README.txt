@@ -15,4 +15,7 @@ the function edits the innerHTML of the #Multiplication_table to display onto th
 Used css for basic styling. I could have used bootstrap, but I felt that was too much after finishing the overall
 html and js files.
 
+I pushed this onto my git pages and I also edited all the main index navbars and homework.html to include links 
+to HW5. However, when I tried to navigate using git pages HW5 was not being shown. It works locally.
+
 gh-page link: https://ajmccombs.github.io/GUI_1/
