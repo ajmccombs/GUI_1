@@ -48,6 +48,8 @@ function create_Table(){
     col_maxi = 100;
   }
 
+  console.log("Row start: ", row_mini, "Row end: ", row_maxi, "Col start: ", col_mini, "Col end: ", col_maxi);
+
   //using a matrix called table to store numbers.
   //need to store the input numbers so the calculation doesn't affect them
   var table = {};
@@ -104,6 +106,22 @@ function fill_Table(table){
     col_mini = col_maxi;
     col_maxi = temp;
   }
+
+  //Minimum is -50 < x < 50
+  if (row_mini < -100){
+    row_mini = -100;
+  }
+  if (row_maxi > 100){
+    row_maxi = 100;
+  }
+  if (col_mini < -100){
+    col_mini = -100;
+  }
+  if (col_maxi > 100){
+    col_maxi = 100;
+  }
+
+  console.log("After Boundary: Row start: ", row_mini, "Row end: ", row_maxi, "Col start: ", col_mini, "Col end: ", col_maxi);
 
   var row_s = row_mini;
   var col_s = col_mini;

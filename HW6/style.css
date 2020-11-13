@@ -1,0 +1,62 @@
+/*
+File: /~amccombs/hw5/style.css
+GUI 1 Assignment: Intro to JS
+Allan Z. McCombs, UMass Lowell Computer Science, allan_mccombs@student.uml.edu
+Copyright (c) 2020 by Allan Z McCombs. All rights reserved. May be
+freely
+copied or excerpted for educational purposes with credit to the
+author.
+updated by AZM on October 29, 2020 at 7:16pm
+*/
+
+/* Got custom fonts from https://www.w3schools.com/cssref/css3_pr_font-face_rule.asp,
+Got font from https://fonts.google.com/specimen/Indie+Flower?sidebar.open=true&selection.family=Indie+Flower */
+@font-face {
+  font-family: myFirstFont;
+  src: url("fonts/IndieFlower-Regular.ttf");
+}
+body{
+  background-color: lightblue;
+}
+h1{
+  font-family: myFirstFont;
+  text-align: center;
+  padding: 0px 0px 0px 20px;
+}
+form {
+  font-size: x-large;
+  font-family: myFirstFont;
+  padding-bottom: 20px;
+  background-color: lightgray;
+  width: 250px;
+  text-align: center;
+  margin: 0 auto;
+}
+div#Multiplication_table{
+  font-size: x-large;
+  font-family: myFirstFont;
+}
+
+/* Button Styling https://www.w3schools.com/css/tryit.asp?filename=trycss_form_button */
+input[type=submit]{
+  border: 1px solid black;
+  padding: 0px 0px 0px 10px;
+  font-size: x-large;
+  font-family: myFirstFont;
+  text-align: left;
+}
+
+footer{
+  font-style: italic;
+  font-family: myFirstFont;
+}
+
+/*Table styling https://www.w3schools.com/css/css_table.asp */
+#Multiplication_table td, #Multiplication_table th {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+#Multiplication_table tr:nth-child(even){
+  background-color: lightgray;
+}

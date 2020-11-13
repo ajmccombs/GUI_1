@@ -1,12 +1,12 @@
 <!--
-File: /~amccombs/hw5/index.html
-GUI 1 Assignment: Intro to JS
+File: /~amccombs/hw6/index.html
+GUI 1 Assignment: Validation with jQuery
 Allan Z. McCombs, UMass Lowell Computer Science, allan_mccombs@student.uml.edu
 Copyright (c) 2020 by Allan Z McCombs. All rights reserved. May be
 freely
 copied or excerpted for educational purposes with credit to the
 author.
- updated by AZM on October 29, 2020 at 7:16pm
+updated by AZM November 12, 2020 at 10:49pm
 -->
 
 <!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
@@ -17,7 +17,7 @@ author.
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-      <title>Intro to JS</title>
+      <title>jQuery Validation</title>
 
       <!-- Bootstrap -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
@@ -52,53 +52,75 @@ author.
                 <li><a href="HW2/index.html">Homework 2</a></li>
                 <li><a href="HW3/index.html">Homework 3</a></li>
                 <li><a href="../index.html">Homework 4</a></li>
-                <li><a href="index.html">Homework 5</a></li>
-                <li><a href="../HW6/index.html">Homework 6</a></li>
+                <li><a href="../HW5/index.html">Homework 5</a></li>
+                <li><a href="index.html">Homework 6</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Maybe Inclass Work?</a></li>
               </ul>
             </li>
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+        </div> <!-- /.navbar-collapse -->
+      </div> <!-- /.container-fluid -->
     </nav>
 
     <h1>
-      Multiplication Table
+      Multiplication Table with Validation
     </h1>
-  <div id="Form">
 
-    <!-- Form help from https://www.w3schools.com/html/html_forms.asp
-    Onsubmit from https://www.w3schools.com/tags/ev_onsubmit.asp
-    with onsubmit, the table only appears for a split second for some reason
-    so instead I use onClick to show the table -->
+    <div id="Form">
+      <!-- Changed form from html/js to a jQuery form. No longer using onsubmit -->
+      <form id="ask_form" name="ask_input" method="GET">
+        <div>
+          <label for="row_min">Row Min:</label>
+          <input type="number" id="row_min" name="row_min" required>
+        </div>
+        <div>
+          <label for="row_max">Row Max:</label>
+          <input type="number" id="row_max" name="row_max" required>
+        </div>
+        <div>
+          <label for="col_min">Col Min:</label>
+          <input type="number" id="col_min" name="col_min" required>
+        </div>
+        <div>
+          <label for="col_max">Col Max:</label>
+          <input type="number" id="col_max" name="col_max" required>
+        </div>
+          <br>
+          <input id="submit" class="sumbit_btn" type="submit" value="Create Table">
+      </form>
+    </div>
 
-    <form onsubmit="return false">
-      <label for="row_min">Row Min:</label><br>
-      <input type="text" id="row_min" name="row_min"><br>
-      <label for="row_max">Row Max:</label><br>
-      <input type="text" id="row_max" name="row_max"><br>
+    <!-- placing error message here -->
+    <div id ="Error_msg"></div>
 
-      <label for="col_min">Col Min:</label><br>
-      <input type="text" id="col_min" name="col_min"><br>
-      <label for="col_max">Col Max:</label><br>
-      <input type="text" id="col_max" name="col_max"><br><br>
-      <input type="submit" value="Submit" onclick="return create_Table()">
-    </form>
-  </div>
+    <!-- Table gets loading here after the js is finished creating it -->
+    <div id ="Multiplication_table"> </div>
 
-  <!-- Table gets loading here after the js is finished creating it -->
-  <div id ="Multiplication_table"></div>
 
-  <footer>
-    <p>&copy; Allan McCombs 2020</p>
-  </footer>
+    <footer>
+      <p>&copy; Allan McCombs 2020</p>
+    </footer>
 
-    <script src="js/hw5.js" charset="utf-8"></script>
+    <!-- Include my js file -->
+    <script src="js/hw6.js"></script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- jQuery source -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins), double call for this HW. jQuery Source already covers bootstrap -->
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <script> // Runs the validate function and create_Table when body is ready
+      $(document).ready(function() {
+      validate_Form();
+      });
+    </script>
+
   </body>
 </html>
