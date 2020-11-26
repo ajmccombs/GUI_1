@@ -1,0 +1,158 @@
+<!--
+File: /~amccombs/hw7/index.html
+GUI 1 Assignment: jQuery UI Slider and Tab Widgets
+Allan Z. McCombs, UMass Lowell Computer Science, allan_mccombs@student.uml.edu
+Copyright (c) 2020 by Allan Z McCombs. All rights reserved. May be
+freely
+copied or excerpted for educational purposes with credit to the
+author.
+updated by AZM November 25, 2020 at 9:49pm
+-->
+
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html lang = "en-US">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+      <title>jQuery Silder</title>
+
+      <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
+
+      <!-- Slider -->
+      <!-- jQuery UI Theme -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css">
+
+  </head>
+  <body>
+
+    <!-- Navbar template taken from https://getbootstrap.com/docs/3.4/components/#navbar-default -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <!-- <li class="active"><a href="homeworks.html">Homework Index <span class="sr-only">(current)</span></a></li> -->
+            <li><a href="homeworks.html">Homework Index</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Homeworks <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../HW2/index.html">Homework 2</a></li>
+                <li><a href="../HW3/index.html">Homework 3</a></li>
+                <li><a href="../index.html">Homework 4</a></li>
+                <li><a href="../HW5/index.html">Homework 5</a></li>
+                <li><a href="../HW6/index.html">Homework 6</a></li>
+                <li><a href="index.html">Homework 7</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Maybe Inclass Work?</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div> <!-- /.navbar-collapse -->
+      </div> <!-- /.container-fluid -->
+    </nav>
+
+    <h1>
+      Multiplication Table with jQuery Slider
+    </h1>
+
+    <div id="Form">
+      <!-- Changed form from html/js to a jQuery form. No longer using onsubmit -->
+      <form id="ask_form" name="ask_input" method="GET">
+        <div>
+          <label for="row_min">Row Min:</label>
+          <input type="number" id="row_min" name="row_min" value="0" required>
+          <div id="row_min_slider"></div>
+        </div>
+
+        <div>
+          <label for="row_max">Row Max:</label>
+          <input type="number" id="row_max" name="row_max" value="0" required>
+          <div id="row_max_slider"></div>
+        </div>
+
+        <div>
+          <label for="col_min">Col Min:</label>
+          <input type="number" id="col_min" name="col_min" value="0" required>
+          <div id="col_min_slider"></div>
+        </div>
+
+        <div>
+          <label for="col_max">Col Max:</label>
+          <input type="number" id="col_max" name="col_max" value="0" required>
+          <div id="col_max_slider"></div>
+        </div>
+
+          <br>
+          <!-- OnClick to create table in a new tab -->
+          <input id="submit" class="sumbit_btn" type="submit" value="Save Table">
+      </form>
+
+      <!-- placing error message here -->
+      <div id ="Error_msg"></div>
+
+    </div>
+
+    <!-- table gets loading here after the js is finished creating it -->
+    <div id ="Multiplication_table"></div>
+
+    <!-- saved tables will be here in tabs -->
+    <div>
+      <p> Saved tables will be below. 10 max can be saved at a time. </p>
+      <div id="tab">
+        <ul>
+        </ul>
+      </div>
+    </div>
+
+
+    <footer>
+      <p>&copy; Allan McCombs 2020</p>
+    </footer>
+
+    <!-- Include my js file -->
+    <script src="js/hw7.js"></script>
+
+    <!-- jQuery source -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins), double call for this HW. jQuery Source already covers bootstrap -->
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <!-- jQuery UI Slider -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <script> // Runs the validate function and create_Table when body is ready
+      $(document).ready(function() {
+
+        slider();
+        validate_Form();
+        save_tab();
+
+      });
+    </script>
+
+  </body>
+</html>
