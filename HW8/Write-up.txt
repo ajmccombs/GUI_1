@@ -1,0 +1,26 @@
+
+Help from former student about infastructure ideas; went with psuedo-object orientated approach.
+Other help is in-line documentations
+
+Working:
+
+Pictures:
+- correctly shows the holder, boardLine, and the tiles
+
+Drag and drop tiles.
+- to the board line
+- back to the holder
+
+Submit and reset button.
+- holds highscore after submit is intentional
+- resert clears board line and gives holder new tiles
+- sumbit only gives the amount of tiles equal to the amount used
+
+Random tile generation for the holder.
+- correct tile distribution
+- correctly gives a new hand on reset
+
+Score calculation:
+- score is calculated correctly when on the bonus tiles
+- two words are allowed with blank space
+- did not implement varification of words

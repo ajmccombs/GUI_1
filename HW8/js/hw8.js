@@ -12,30 +12,34 @@ upperCaseOffset = 65;
 
 function scrabble () {
     /* GetJSON https://www.w3schools.com/jquery/ajax_getjson.asp*/
-  $.getJSON("https://raw.githubusercontent.com/ajmccombs/GUI_1/master/HW8/graphics_data/pieces.json", function (json) {
+  $.getJSON("https://raw.githubusercontent.com/ajmccombs/GUI_1/main/graphics_data/pieces.json", function (json) {
 
-  console.log("I'm in the js function")
 
-      let boardLine = createBoardLine();
-      let tiles = createRandomTiles(7, json);
 
+      let boardLine = createBoardLine(); // create boardLine
+      let tiles = createRandomTiles(7, json); // random tiles for holder
+
+      // score variables
       let score = 0;
       let highScore = score;
       let $score = $("#score");
       let $highScore = $("#highScore");
 
+      // loading holder picture
       let $holder = $("#holder")
       $holder.css("background-image", "url('graphics_data/holder.png')");
 
+      // calling draggable and droppable handlers
       dragndrop();
 
+      // on reset handler
       $("#resetButton").button();
       $("#resetButton").click(function () {
           reset();
           dragndrop();
       });
 
-
+      // on submit handler
       $("#submitButton").button();
       $("#submitButton").click(function () {
           if (highScore < score) {
@@ -75,7 +79,7 @@ function scrabble () {
       });
 
 
-    // early drap help https://www.youtube.com/watch?v=C22hQKE_32c&ab_channel=TraversyMedia
+    // early drap help https://www.youtube.com/watch?v=C22hQKE_32c&ab_channel=TraversyMedia, but went a different direction
     // drag and drop handler
     function dragndrop(){
 
@@ -108,6 +112,7 @@ function scrabble () {
             }
           }
 
+          // handlers for moving the tiles to and from the holder and boardLine
           boardLine[dropLocation].setContainedTile(tiles[draggedIndex]);
           tiles[draggedIndex].setPlaced(true);
           tiles[draggedIndex].setBoardLinePosition(dropLocation);
